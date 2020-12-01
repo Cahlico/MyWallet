@@ -5,6 +5,8 @@ import UserContext from '../contexts/userContext';
 import SignIn from '../pages/SignIn';
 import SignUp from '../pages/SignUp';
 import MainPage from '../pages/MainPage';
+import EntryPage from '../pages/EntryPage';
+import OutflowPage from '../pages/OutflowPage';
 
 export default function App() {
 
@@ -17,6 +19,8 @@ export default function App() {
                 <Switch>
                     <Route path="/sign-up" component={SignUp} />
                     <Route path="/main-page" component={MainPage} />
+                    <Route path="/entry-page" component={EntryPage} />
+                    <Route path="/outflow-page" component={OutflowPage} />
                     <Route path="/" component={SignIn} />
                 </Switch>
             </Router>

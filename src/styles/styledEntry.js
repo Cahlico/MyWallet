@@ -11,7 +11,7 @@ export const EntryContainer = styled.div`
         font-family: 'Saira Stencil One', cursive;
         color: #FFF;
         font-size: 32px;
-        margin-top: -100px;
+        margin-top: -80px;
     }
 
     a {

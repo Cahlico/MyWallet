@@ -24,7 +24,7 @@ export default function SignIn() {
 
         setClicked(true);
 
-        const request = axios.post('https://localhost:3000/api/sign_in', { email, password,  });
+        /*const request = axios.post('https://localhost:3000/api/sign_in', { email, password, userId });
 
         request.then(response => {
             const data = response.data;
@@ -37,7 +37,9 @@ export default function SignIn() {
         request.catch(() => {
             alert('E-mail ou senha incorretos');
             setClicked(false);
-        });
+        });*/
+
+        history.push('/main-page');
     }
 
     return (
