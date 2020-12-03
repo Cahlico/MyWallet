@@ -44,7 +44,7 @@ export default function OutflowPage() {
                 type='text' 
                 onChange={e => setValue(e.target.value)} 
                 value={value} 
-                placeholder='Valor, ex: 25.99'
+                placeholder='Valor, ex: 25,99'
             />
             <input
                 type='text' 

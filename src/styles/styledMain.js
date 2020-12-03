@@ -64,6 +64,9 @@ export const RegisterContainer = styled.div`
 `;
 
 export const Balance = styled.div`
+    height: 88%;
+    overflow-y: scroll;
+
     div {
         display: flex;
         width: 80vw;

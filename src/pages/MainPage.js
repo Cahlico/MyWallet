@@ -54,13 +54,13 @@ export default function MainPage() {
                             {balance.map(e => (
                                 <div key={e.id}>
                                     <p>{e.description}</p>
-                                    <p className={e.entry ? 'entry' : 'outflow'}>{e.value}</p>
+                                    <p className={e.entry ? 'entry' : 'outflow'}>{e.value.toFixed(2).replace('.',',')}</p>
                                 </div>
                             ))}
                         </Balance>
                         <span>
                             <strong>saldo</strong>
-                            <p className={total >= 0 ? 'entry' : 'outflow'}>{total}</p>
+                            <p className={total >= 0 ? 'entry' : 'outflow'}>{total.toFixed(2).replace('.',',')}</p>
                         </span>
                     </>
                     : <Empty><p>Não há registros de entrada ou saída</p></Empty>
