@@ -29,8 +29,7 @@ export default function MainPage() {
     }, []);
 
     function logout() {
-        
-        const request = axios.delete(`http://localhost:3000/api/sessions`, userId, { headers: { 'Authorization': `Bearer ${token}`}});
+        const request = axios.delete(`http://localhost:3000/api/sessions`, { headers: { 'Authorization': `Bearer ${token}`}});
         
         request.then(() => {
             history.push('/');
