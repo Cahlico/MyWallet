@@ -3,10 +3,12 @@ import styled from 'styled-components';
 export const Container = styled.main`
     height: 100vh;
     padding: 0 5%;
-    div {
+
+    &>div {
         padding-bottom: 10px;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         color: #FFF;
     }
 
@@ -28,10 +30,57 @@ export const Container = styled.main`
 `;
 
 export const RegisterContainer = styled.div`
-    width: 86vw;
+    width: 82vw;
     height: 65%;
     background-color: #FFF;
     border-radius: 3px; 
+    padding: 10px;
+    position: relative;
+
+    span {
+        display: flex;
+        justify-content: space-between;
+        position: absolute;
+        width: 80vw;
+        bottom: 0px;
+
+        strong { 
+            color: #000;
+            font-size: 22px;
+        }
+
+        p {
+            margin-top: 0px;
+        }
+
+        .outflow {
+            color: #C70000;
+        }
+
+        .entry {
+            color: #03AC00;
+        }
+    }
+`;
+
+export const Balance = styled.div`
+    div {
+        display: flex;
+        width: 80vw;
+        justify-content: space-between;
+
+        p {
+            color: #000;
+        }
+
+        .outflow {
+            color: #C70000;
+        }
+
+        .entry {
+            color: #03AC00;
+        }
+    }
 `;
 
 export const InAndOut = styled.div`

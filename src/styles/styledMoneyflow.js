@@ -33,4 +33,9 @@ export const Container = styled.div`
         font-weight: 600;
         padding: 12px;
     }
+
+    img {
+        margin-left: 20vw;
+        width: 40vw;
+    }
 `;

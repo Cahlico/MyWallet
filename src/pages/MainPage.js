@@ -1,25 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { IoIosLogOut, IoIosAddCircleOutline, IoIosRemoveCircleOutline } from 'react-icons/io';
+import axios from 'axios';
 
-import { Container, RegisterContainer, InAndOut, Empty } from '../styles/styledMain';
+import UserContext from '../contexts/userContext';
+import { Container, RegisterContainer, Balance, InAndOut, Empty } from '../styles/styledMain';
 
 export default function MainPage() {
 
-    const [entry, setEntry] = useState([]);
-    const [outflow, setOutflow] = useState([]);
+    const [balance, setBalance] = useState([]);
+    const [total, setTotal] = useState(0);
+    const { userInfo } = useContext(UserContext);
+    const { token, userId } = userInfo.data;
     const history = useHistory();
 
+    useEffect(() => {
+        const request = axios.get('http://localhost:3000/api/payment', { headers: { 'Authorization': `Bearer ${token}`}});
+
+        request.then(response => {
+            setBalance(response.data);
+            let sum = 0;
+            response.data.forEach(e => {
+                if(e.entry) sum += e.value;
+                else sum -= e.value;
+            });
+            setTotal(sum);
+        });
+    }, []);
+
     function logout() {
-        /*
-            request = axios.delete(`http://localhost:3000/api/sessions`, id);
+        
+        const request = axios.delete(`http://localhost:3000/api/sessions`, userId, { headers: { 'Authorization': `Bearer ${token}`}});
+        
+        request.then(() => {
+            history.push('/');
+        });
 
-            request.then() {
-                history.push('/');
-            }
-        */
-
-       history.push('/');
+        request.catch(() => {
+            alert('houve um erro ao tentar se desconectar');
+        });
     }
 
     return(
@@ -29,8 +48,21 @@ export default function MainPage() {
                 <IoIosLogOut onClick={logout} />
             </div>
             <RegisterContainer>
-                {entry.length !== 0 || outflow.length !== 0
-                    ? 'botar coisa aqui'
+                {balance.length !== 0
+                    ? <>
+                        <Balance>
+                            {balance.map(e => (
+                                <div key={e.id}>
+                                    <p>{e.description}</p>
+                                    <p className={e.entry ? 'entry' : 'outflow'}>{e.value}</p>
+                                </div>
+                            ))}
+                        </Balance>
+                        <span>
+                            <strong>saldo</strong>
+                            <p className={total >= 0 ? 'entry' : 'outflow'}>{total}</p>
+                        </span>
+                    </>
                     : <Empty><p>Não há registros de entrada ou saída</p></Empty>
                 }
             </RegisterContainer>

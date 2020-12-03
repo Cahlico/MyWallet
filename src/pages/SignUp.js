@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, History, useHistory } from 'react-router-dom';
+import axios from 'axios';
 
 import { EntryContainer, Form } from '../styles/styledEntry';
 
@@ -24,7 +25,7 @@ export default function SignIn() {
 
         setClicked(true);
 
-        /*const request = axios.post('https://localhost:3000/api/sign_up', { email, username, password, passwordConfirmation });
+        const request = axios.post('http://localhost:3000/api/sign_up', { email, username, password, passwordConfirmation });
 
         request.then(() => {
             alert('Cadastrado com sucesso!');
@@ -34,8 +35,7 @@ export default function SignIn() {
         request.catch(() => {
             alert('E-mail inserido já cadastrado');
             setClicked(false);
-        });*/
-        history.push('/');
+        });
     }
 
     return (
