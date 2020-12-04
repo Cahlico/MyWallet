@@ -25,7 +25,7 @@ export default function SignIn() {
 
         setClicked(true);
 
-        const request = axios.post('http://localhost:3000/api/sign_up', { email, username, password, passwordConfirmation });
+        const request = axios.post('https://carlos-coutinho.herokuapp.com/api/sign_up', { email, username, password, passwordConfirmation });
 
         request.then(() => {
             alert('Cadastrado com sucesso!');

@@ -25,7 +25,7 @@ export default function SignIn() {
 
         setClicked(true);
 
-        const request = axios.post('http://localhost:3000/api/sign_in', { email, password });
+        const request = axios.post('https://carlos-coutinho.herokuapp.com/api/sign_in', { email, password });
 
         request.then(response => {
             const data = response.data;

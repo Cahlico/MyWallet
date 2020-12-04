@@ -26,7 +26,7 @@ export default function OutflowPage() {
 
         const body = { value: parseFloat(value), description, entry: false, userId };
 
-        const request = axios.post('http://localhost:3000/api/payment',  body, { headers: { 'Authorization': `Bearer ${token}`}});
+        const request = axios.post('https://carlos-coutinho.herokuapp.com/api/payment',  body, { headers: { 'Authorization': `Bearer ${token}`}});
         request.then(() => {
             alert('salvo com sucesso');
             history.push('/main-page');

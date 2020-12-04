@@ -25,7 +25,7 @@ export default function EntryPage() {
 
         const body = { value: parseFloat(value), description, entry: true, userId };
 
-        const request = axios.post('http://localhost:3000/api/payment',  body, { headers: { 'Authorization': `Bearer ${token}`}});
+        const request = axios.post('https://carlos-coutinho.herokuapp.com/api/payment',  body, { headers: { 'Authorization': `Bearer ${token}`}});
         request.then(() => {
             alert('salvo com sucesso');
             history.push('/main-page');

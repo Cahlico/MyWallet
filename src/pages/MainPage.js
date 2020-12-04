@@ -15,7 +15,7 @@ export default function MainPage() {
     const history = useHistory();
 
     useEffect(() => {
-        const request = axios.get('http://localhost:3000/api/payment', { headers: { 'Authorization': `Bearer ${token}`}});
+        const request = axios.get('https://carlos-coutinho.herokuapp.com/api/payment', { headers: { 'Authorization': `Bearer ${token}`}});
 
         request.then(response => {
             setBalance(response.data);
@@ -29,7 +29,7 @@ export default function MainPage() {
     }, []);
 
     function logout() {
-        const request = axios.delete(`http://localhost:3000/api/sessions`, { headers: { 'Authorization': `Bearer ${token}`}});
+        const request = axios.delete(`https://carlos-coutinho.herokuapp.com/api/sessions`, { headers: { 'Authorization': `Bearer ${token}`}});
         
         request.then(() => {
             history.push('/');
