@@ -11,7 +11,7 @@ export default function MainPage() {
     const [balance, setBalance] = useState([]);
     const [total, setTotal] = useState(0);
     const { userInfo } = useContext(UserContext);
-    const { token, userId } = userInfo.data;
+    const { token } = userInfo.data;
     const history = useHistory();
 
     useEffect(() => {
@@ -43,7 +43,7 @@ export default function MainPage() {
     return(
         <Container>
             <div>
-                <h1>Olá, Fulano</h1>
+                <h1>Sua Carteira</h1>
                 <IoIosLogOut onClick={logout} />
             </div>
             <RegisterContainer>
