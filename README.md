@@ -6,7 +6,7 @@
 
 ## Objective
 <p>
-   This project was developed throughout bootcamp Responde Aí, it is a Single-Page Application using React. Its is a simple bank app account, the user can register, log in, add last entries, add last purchases and logout.
+   This project was developed throughout bootcamp Responde Aí, it is a Single-Page Application using React for mobile users. Its is a simple bank app account, the user can register, log in, add last entries, add last purchases and logout.
 </p>
 
 ### Features
